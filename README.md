@@ -1,4 +1,4 @@
-# NHL Team Twiiter Bot
+# NHL Team Twitter Bot
 
 This bot randomly selects 5 of the 31 NHL Teams to source from every time, and generates a tweet with similar sentiment and content using a Markov Chain model. The code is largely based off of [this repository](https://github.com/tommeagher/heroku_ebooks), with a few small modifications. Please see the original repository for a step-by-step guide on setting up Heroku.
 
