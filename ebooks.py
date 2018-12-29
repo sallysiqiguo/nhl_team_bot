@@ -203,10 +203,10 @@ if __name__ == "__main__":
             ebook_status = mine.generate_sentence()
 
         # randomly drop the last word, as Horse_ebooks appears to do.
-        if random.randint(0, 4) == 0 and re.search(r'(in|to|from|for|with|by|our|of|your|around|under|beyond)\s\w+$', ebook_status) is not None:
-            print("Losing last word randomly")
-            ebook_status = re.sub(r'\s\w+.$', '', ebook_status)
-            print(ebook_status)
+        # if random.randint(0, 4) == 0 and re.search(r'(in|to|from|for|with|by|our|of|your|around|under|beyond)\s\w+$', ebook_status) is not None:
+        #     print("Losing last word randomly")
+        #     ebook_status = re.sub(r'\s\w+.$', '', ebook_status)
+        #     print(ebook_status)
 
         # if a tweet is very short, this will randomly add a second sentence to it.
         if ebook_status is not None and len(ebook_status) < 80:
@@ -224,16 +224,20 @@ if __name__ == "__main__":
                 ebook_status = ebook_status.upper()
 
         # throw out tweets that match anything from the source account.
-        if ebook_status is not None and len(ebook_status) < 210:
-            for status in source_statuses:
-                if ebook_status[:-1] not in status:
-                    continue
-                else:
-                    print("TOO SIMILAR: " + ebook_status)
-                    sys.exit()
+        # if ebook_status is not None and len(ebook_status) < 210:
+        #     for status in source_statuses:
+        #         if ebook_status[:-1] not in status:
+        #             continue
+        #         else:
+        #             print("TOO SIMILAR: " + ebook_status)
+        #             sys.exit()
 
             if not DEBUG:
                 if ENABLE_TWITTER_POSTING:
+                    source = ("\n\nTweet modeled off of "
+                            + ", ".join(["@"+name for name in TWITTER_SOURCE_ACCOUNTS[:-1]])
+                            + ", and @" + TWITTER_SOURCE_ACCOUNTS[-1] + ".")
+                    ebook_status += source
                     status = api.PostUpdate(ebook_status)
                 if ENABLE_MASTODON_POSTING:
                     status = mastoapi.toot(ebook_status)
@@ -241,5 +245,6 @@ if __name__ == "__main__":
 
         elif not ebook_status:
             print("Status is empty, sorry.")
-        else:
+
+        if ebook_status is not None and len(ebook_status) > 280:
             print("TOO LONG: " + ebook_status)
