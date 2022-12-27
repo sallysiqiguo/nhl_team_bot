@@ -22,7 +22,7 @@ USER_ACCESS_FILENAME = '' # The MASTODON user credential file you created at ins
 
 # Sources (Twitter, Mastodon, local text file or a web page)
 # TWITTER_SOURCE_ACCOUNTS = ["penguins", "pensinsidescoop", "pensjg"]  # A list of comma-separated, quote-enclosed Twitter handles of account that you'll generate tweets based on. It should look like ["account1", "account2"]. If you want just one account, no comma needed.
-ALL_ACCOUNTS = ["NHLBlackhawks", "Capitals", "penguins", "EdmontonOilers", "NYIslanders", "DetroitRedWings", "Canucks", "mnwild", "LAKings", "NHLFlyers", "NHLCanes", "CanadiensMTL", "AnaheimDucks", "ArizonaCoyotes", "NYRangers", "BuffaloSabres", "StLouisBlues", "BlueJacketsNHL", "Avalanche", "NHLFlames", "SanJoseSharks", "TBLightning", "PredsNHL", "DallasStars", "FlaPanthers", "NJDevils", "Senators", "NHLBruins", "MapleLeafs", "NHLJets", "GoldenKnights"]
+ALL_ACCOUNTS = ["NHLBlackhawks", "Capitals", "penguins", "EdmontonOilers", "NYIslanders", "DetroitRedWings", "Canucks", "mnwild", "LAKings", "NHLFlyers", "NHLCanes", "CanadiensMTL", "AnaheimDucks", "ArizonaCoyotes", "NYRangers", "BuffaloSabres", "StLouisBlues", "BlueJacketsNHL", "Avalanche", "NHLFlames", "SanJoseSharks", "TBLightning", "PredsNHL", "DallasStars", "FlaPanthers", "NJDevils", "Senators", "NHLBruins", "MapleLeafs", "NHLJets", "GoldenKnights", "SeattleKraken"]
 selected = random.sample(range(0, 31), 5)
 TWITTER_SOURCE_ACCOUNTS = [ALL_ACCOUNTS[i] for i in selected]
 MASTODON_SOURCE_ACCOUNTS = [""] # A list, e.g. ["@user@instance.tld"]
@@ -35,7 +35,7 @@ WEB_CONTEXT = ['span', 'h2']  # A comma-separated list of the tag or object to s
 WEB_ATTRIBUTES = [{'class': 'example-text'}, {}] # A list of dictionaries containing the attributes for each page.
 
 ODDS = 4  # How often do you want this to run? 1/8 times?
-ORDER = 2  # How closely do you want this to hew to sensical? 2 is low and 4 is high.
+ORDER = 4  # How closely do you want this to hew to sensical? 2 is low and 4 is high.
 
 DEBUG = False  # Set this to False to start Tweeting live
 TWEET_ACCOUNT = "EveryNHLTeamBot"  # The name of the account you're tweeting to.
